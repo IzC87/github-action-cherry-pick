@@ -26,10 +26,6 @@ git_cmd() {
 PR_BRANCH="auto-$INPUT_PR_BRANCH-$GITHUB_SHA"
 MESSAGE=$(git log -1 $GITHUB_SHA | grep "AUTO" | wc -l)
 
-if [[ $MESSAGE -gt 0 ]]; then
-  echo "Autocommit, NO ACTION"
-  exit 0
-fi
 
 PR_TITLE=$(git log -1 --format="%s" $GITHUB_SHA)
 
